@@ -3,7 +3,7 @@
  * Необходимо
  *     сгенерировать n-массивов;
  *     заполнить массивы случайными числами;
- *     каждый массив случайного размер;
+ *     каждый массив случайного размера;
  *     размеры массивов не должны совпадать;
  *     отсортировать массивы:
  *         - массивы с четным порядковым номером отсортировать по возрастанию;
@@ -26,20 +26,20 @@ public class Main {
         }
     }
 
-    public static Integer[][] randomArray(int N) {
+    public static Integer[][] randomArray(int n) {
         // Создаем массив для хранения уникальных случайных чисел
         // которые будут использоваться для создания массивов разной длинны
-        int[] sizeMassiv = new int[N];
+        int[] sizeArray = new int[n];
         // Заполняем массив уникальными случайными числами от 1 до 100
-        for (int i = 0; i < N; i++){
+        for (int i = 0; i < n; i++){
             boolean found = false;
             // Создаем случайно число от 1 до 100
-            int newNum = (int) (Math.random() * (100-1) + 1);
+            int newNumber = (int) (Math.random() * (100-1) + 1);
             // Проверяем не добавлено ли уже такое число в массив
             // если числа нет в массиве значение переменной found не меняется
             // если число есть в массиве found принимает значчение = true
-            for (int y = 0; y < sizeMassiv.length; y++){
-                if (newNum == sizeMassiv[y]){
+            for (int y = 0; y < sizeArray.length; y++){
+                if (newNumber == sizeArray[y]){
                     found = true;
                     break;
                 }
@@ -47,7 +47,7 @@ public class Main {
             // Если числа в массиве ещё нет - добавлем число в массив
             // иначе уменьшаем значение счетчика цикла на 1 и повторяем прогон
             if (found == false) {
-                sizeMassiv[i] = newNum;
+                sizeArray[i] = newNumber;
             } else {
                 i = i-1;
             }
@@ -56,19 +56,19 @@ public class Main {
         // Логгируем массив с уникальными случайными числами для отладки
     /*
         System.out.print("Массив с размерами массивов: ");
-        for (int i = 0; i < sizeMassiv.length; i++){
-            System.out.print(sizeMassiv[i] + " ");
+        for (int i = 0; i < sizeArray.length; i++){
+            System.out.print(sizeArray[i] + " ");
         }
     */
-        // Создаем многомерный маасив с количеством строк равным N (кол-во запрошенных массивов)
-        Integer[][] multiArray = new Integer[N][];
+        // Создаем многомерный маасив с количеством строк равным n (кол-во запрошенных массивов)
+        Integer[][] multiArray = new Integer[n][];
 
-        // Заполняем многомерный массив массивами с длинной взятой \
-        // из созданного ранее массива sizeMassiv с уникальными числами
-        for (int i = 0; i < sizeMassiv.length; i++) {
-            multiArray[i] = new Integer[sizeMassiv[i]];
+        // Заполняем многомерный массив массивами с длинной взятой
+        // из созданного ранее массива sizeArray с уникальными числами
+        for (int i = 0; i < sizeArray.length; i++) {
+            multiArray[i] = new Integer[sizeArray[i]];
             for (int j = 0; j < multiArray[i].length; j++){
-                int randomNumber = (int) (Math.random() * (100-1)+1);
+                int randomNumber = (int) (Math.random() * 201 - 100);
                 multiArray[i][j] = randomNumber;
             }
             // Сортируем массив по убыванию или возрастанию в зависимости от порядкого номера
