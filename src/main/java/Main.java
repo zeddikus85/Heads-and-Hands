@@ -68,6 +68,7 @@ public class Main {
         for (int i = 0; i < sizeArray.length; i++) {
             multiArray[i] = new Integer[sizeArray[i]];
             for (int j = 0; j < multiArray[i].length; j++){
+                // Генерируем случайно число в диапозоне от -100 до 100
                 int randomNumber = (int) (Math.random() * 201 - 100);
                 multiArray[i][j] = randomNumber;
             }
